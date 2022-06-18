@@ -4,6 +4,16 @@ type: text/vnd.tiddlywiki
 list-before:
 
 \whitespace trim
-\define switch-layout() <$action-listops $tiddler="$:/publishmode" $field=text $subfilter="+[toggle[topicview],[normalview]]"/>
+\define switch-layout() 
+    <$list filter="[{$:/publishmode}!match[normalview]]" emptyMessage="""<<hide-subtitle>><<swap-title>>""">
+        <$action-deletetiddler $tiddler="$:/core/ui/ViewTemplate/subtitle"/>
+        <$action-deletetiddler $tiddler="$:/core/ui/ViewTemplate/title"/>
+    </$list>
+    <$action-listops $tiddler="$:/publishmode" $field=text $subfilter="+[toggle[topicview],[normalview]]"/>
+\end
 
-<$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> {{$:/publishmode}}
+\define hide-subtitle() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/subtitle" text=""/>
+
+\define swap-title() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/title" text="{{||$:/plugins/can/onetopic/template-title}}"/>
+
+<$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> &nbsp;{{$:/publishmode}}

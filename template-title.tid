@@ -1,0 +1,3 @@
+title: $:/plugins/can/onetopic/template-title
+
+<h2><$view field="caption"/></h2>

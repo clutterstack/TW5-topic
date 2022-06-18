@@ -1,0 +1,5 @@
+title: $:/plugins/can/onetopic/ViewTemplateTitleFilters/onetopic
+tags: $:/tags/ViewTemplateTitleFilter
+list-before:
+
+[{$:/publishmode}match[topicview]then[$:/plugins/can/onetopic/template-title]]

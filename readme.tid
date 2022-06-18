@@ -4,10 +4,6 @@ caption: readme
 * this plugin is to provide a mode to display tiddlers for reading
 
 * a topic can be defined by one tiddler; everything in it is defined recursively by the contents of omni-list fields
-* give that tiddler an omni-type field? with value "fleet". It can be the ToC?
-* if 
-
-
 
 
 * a button in the sidebar for read mode sets a value in a config tiddler
@@ -18,12 +14,32 @@ caption: readme
     * an annotated layout that uses the annot omni template
     * 
 
-
 How do I intercept the cascade? Do the simplest thing rn, not most performant.
 
+Here's an example of how things work in TW:
+
+To change the body template, add a filter tiddler, tagged with `$:/tags/ViewTemplateBodyFilter`, that returns the template we want to use. That cascade is set within a filter inside `$:/core/ui/ViewTemplate/body`. 
+
+## Changes in the onetopic plugin:
+
+* swap out:
+    * subtitle
+        * $:/core/ui/ViewTemplate/subtitle is hard-coded rn, tagged `$:/tags/ViewTemplate`. Is the best way to toggle that to overwrite that tiddler? Let's do it. (done)
+    * title
+        * $:/core/ui/ViewTemplate/title uses a cascade. So all I have to do is decide what I want to see there and make a filter and tag it with `$:/tags/ViewTemplateTitleFilter` 
+        * decide that it'll be nothing unless there's a caption (could make it nothing; edit $:/plugins/can/onetopic/template-title to customize)
+        * but that doesn't get rid of the ViewToolBar -- because THAT's hard-coded into $:/core/ui/ViewTemplate/title.
+        * so in the end, do what I did for the subtitle. 
 
 
 
+
+## Changes to TW5-Omni plugin (done):
+
+* How is omnibus displayed right now? It's a tiddler, tagged with `$:/tags/ViewTemplate` (like `$:/core/ui/ViewTemplate/body`) is. It has the conditions in it (has omni-list, not folded, etc); these conditions could be rewritten using the `:cascade` filter run prefix, but what's the easiest way to hide this if we don't want to see it? Depends on when we want to see it. Let's start simple:
+    * don't want to show omnibus if we're in topic mode and the tiddler isn't an annotated one (say we use the omni-mode field). SO going to hard-code that into the omni plugin for now.
+
+* want to hide omni-toptools in onetopic mode too. (done)
 
 
 ----
