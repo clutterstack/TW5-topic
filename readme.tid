@@ -1,0 +1,32 @@
+title: $:/plugins/can/onetopic/readme
+caption: readme
+
+* this plugin is to provide a mode to display tiddlers for reading
+
+* a topic can be defined by one tiddler; everything in it is defined recursively by the contents of omni-list fields
+* give that tiddler an omni-type field? with value "fleet". It can be the ToC?
+* if 
+
+
+
+
+* a button in the sidebar for read mode sets a value in a config tiddler
+* that value goes into cascade filters, I think, to determine which template each tiddler should be viewed with.
+
+* templates we need:
+    * A "normal" read-only one? So don't automatically show subtids.It can have nav buttons for next, down, prev, up (that looks like v2)
+    * an annotated layout that uses the annot omni template
+    * 
+
+
+How do I intercept the cascade? Do the simplest thing rn, not most performant.
+
+
+
+
+
+
+----
+
+V2:
+* add nav buttons for next, down, prev, up to read-only template

@@ -1,0 +1,9 @@
+tags: $:/tags/PageTemplate $:/tags/can/TopBar
+title: $:/plugins/can/topic/ui/Buttons/toggle-topic-mode
+type: text/vnd.tiddlywiki
+list-before:
+
+\whitespace trim
+\define switch-layout() <$action-listops $tiddler="$:/publishmode" $field=text $subfilter="+[toggle[topicview],[normalview]]"/>
+
+<$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/different/ui/images/layout.svg}}</$button> {{$:/publishmode}}

@@ -1,0 +1,9 @@
+{
+    "title": "$:/plugins/can/onetopic",
+    "description": "onetopic - customising without replacing the layout",
+    "author": "Chris Nicoll",
+    "version": "0.0.1",
+    "core-version": ">=5.1.22",
+    "list": "readme license",
+    "plugin-type": "plugin"
+}
