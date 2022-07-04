@@ -1,5 +1,5 @@
 title: $:/plugins/can/onetopic/template-title
 
-<$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}>
-<h2 class="tc-title"><$view field=<<headingfield>>/></h2>
-</$vars>
+<!-- <$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}> -->
+<h2 class="tc-title"><$view field=caption/></h2>
+<!-- </$vars> -->
