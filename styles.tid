@@ -1,0 +1,12 @@
+title: $:/plugins/can/topic/styles
+tags: $:/tags/Stylesheet
+
+.fleet-header {
+    display: flex;
+    flex-direction: row;
+    /* line-height: 1; */
+}
+
+.fleet-title {
+    font-size: 2.2rem;
+}

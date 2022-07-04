@@ -3,16 +3,38 @@ caption: readme
 
 * this plugin is to provide a mode to display tiddlers for reading
 
-* a topic can be defined by one tiddler; everything in it is defined recursively by the contents of omni-list fields
+* two types of content tiddlers: "normal" and "annotated code".
 
+
+* a button lets the user swap between normal TW layout and this one
+
+* exporter to static?
+
+
+---
+## Exporter:
+
+* all tiddlers in story list
+* use the right template for each
+
+Naive attempt 1: use normal exporter. Hmm. No...
+
+An exporter is a template for an html file. If, looking at it in the TW, it looks like an html file that would show the content I want, I can call it an exporter and use it as one. I think.
+
+
+
+---
+
+## Done:
 
 * a button in the sidebar for read mode sets a value in a config tiddler
 * that value goes into cascade filters, I think, to determine which template each tiddler should be viewed with.
 
+
 * templates we need:
-    * A "normal" read-only one? So don't automatically show subtids.It can have nav buttons for next, down, prev, up (that looks like v2)
+    * A "normal" read-only one? So don't automatically show subtids.
     * an annotated layout that uses the annot omni template
-    * 
+    
 
 How do I intercept the cascade? Do the simplest thing rn, not most performant.
 

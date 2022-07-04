@@ -1,0 +1,13 @@
+title: $:/plugins/can/topic/fleet-toc
+tags: $:/tags/SideBar
+caption: Table of Contents
+
+{{{[{$:/plugins/can/omni/fleetstate!!fleet}enlist-input[]]}}}
+
+<$vars fleettid={{{[{$:/plugins/can/omni/fleetstate!!fleet}enlist-input[]]}}} >
+
+<$tiddler tiddler=<<fleettid>> >
+{{ || $:/plugins/can/omni/template-toc }}
+</$tiddler>
+
+</$vars>

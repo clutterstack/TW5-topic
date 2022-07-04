@@ -1,0 +1,10 @@
+title: $:/plugins/can/topic/template-fleet-title
+tags: $:/tags/PageTemplate
+list-after: $:/plugins/can/topic/ui/Buttons/toggle-topic-mode
+
+\whitespace trim
+<$vars fleetname={{{[{$:/plugins/can/omni/fleetstate!!fleet}enlist-input[]]}}} >
+
+<$list filter="[{$:/publishmode}match[normalview]]" emptyMessage="""<h1><<fleetname>></h1>"""><div class="fleet-header"><div class="fleet-title">Active fleet:&nbsp;<$link to=<<fleetname>>/></div>&nbsp;<span class="fleet-header-button"><<button-savefleet>></span></div></$list>
+
+</$vars>

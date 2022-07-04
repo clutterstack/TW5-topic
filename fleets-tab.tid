@@ -1,0 +1,68 @@
+caption: Fleets
+tags: $:/tags/SideBar $:/tags/Macro
+title: $:/plugins/can/omni/fleets-tab
+type: text/vnd.tiddlywiki
+
+\define fleetstatetid() $:/plugins/can/omni/fleetstate
+
+\define newstoryfleet() <$action-createtiddler $basetitle="fleet" role="fleet" omni-list={{{[list[$:/StoryList]]}}} ><$action-setfield $tiddler=<<fleetstatetid>> fleet=<<createTidder-title>> />/$action-createtiddler>
+
+\define filter-fleetunsaved() [<fleetstatetid>get[fleet]get[omni-list]] -[[$:/StoryList]get[list]]
+
+\define filter-fleettidopen() [<fleetstatetid>get[fleet]enlist-input[]] :intersection[list[$:/StoryList]]
+
+\define action-checkfleetopen()
+<$list filter=<<filter-fleettidopen>> emptyMessage=<<requested-fleet-action>> variable="null">
+    <$action-confirm $message="Can't proceed with the current fleet tiddler is open in the Story. Close fleet tiddler?">
+        <$action-sendmessage $message="tm-close-tiddler" $param={{{[<fleetstatetid>get[fleet]enlist-input[]]}}} />
+    </$action-confirm>
+</$list> 
+\end
+
+\define action-checkunsaved(not used)
+<$list filter=<<filter-fleetunsaved>> variable="ignore">
+    <$action-confirm $message="StoryList and fleet list are different. Continue without saving fleet?">
+        <<requested-fleet-action>>
+    </$action-confirm>
+</$list>
+\end
+
+\define action-switchfleet()
+<$list filter="[<navigateTo>]" variable="ignore" emptyMessage=<<newstoryfleet>> >
+    <!-- Then write new fleet name into the fleet state tiddler -->
+    <$action-listops $tiddler=<<fleetstatetid>> $field=fleet $filter="[<navigateTo>]" />
+    <!-- And replace the active Story list -->
+    <$action-setfield $tiddler="$:/StoryList" $field="list" $value={{{[<navigateTo>get[omni-list]]}}} />
+</$list>
+\end
+
+\define action-clearfleet()
+<$action-deletetiddler $tiddler=<<fleetstatetid>>/>
+<$action-sendmessage $message="tm-close-all-tiddlers" />
+\end
+
+\define action-savefleet() 
+<$list filter="""[<fleetstatetid>get[fleet]enlist-input[]]""" emptyMessage=<<newstoryfleet>> variable="fleettitle">
+<$action-listops $tiddler=<<fleettitle>> $field="omni-list" $filter="[list[$:/StoryList]] -[<fleettitle>]"/>
+</$list>
+\end
+
+\define button-clearfleet()
+<$button class="tc-btn-invisible" actions=<<action-clearfleet>>>{{$:/core/images/close-button}}</$button>&nbsp;Close fleet
+\end
+
+\define button-savefleet() 
+<$vars requested-fleet-action=<<action-savefleet>> >
+    <$button actions=<<action-checkfleetopen>> >Save</$button>
+</$vars>
+\end
+
+<div><<button-clearfleet>></div>
+
+<$vars requested-fleet-action=<<action-switchfleet>>>
+    <$linkcatcher actions=<<action-checkfleetopen>> >
+        <$list filter="""[all[tiddlers]field:role[fleet]]"""/>
+    </$linkcatcher>
+</$vars>
+
+
