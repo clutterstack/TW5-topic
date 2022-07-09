@@ -38,6 +38,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define action-clearfleet()
+<<action-savefleet>>
 <$action-deletetiddler $tiddler=<<fleetstatetid>>/>
 <$action-sendmessage $message="tm-close-all-tiddlers" />
 \end
@@ -49,7 +50,6 @@ type: text/vnd.tiddlywiki
 \end
 
 \define button-clearfleet()
-<<action-savefleet>>
 <$button class="tc-btn-invisible" actions=<<action-clearfleet>>>{{$:/core/images/close-button}}</$button>&nbsp;Close fleet
 \end
 
