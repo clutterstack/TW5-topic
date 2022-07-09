@@ -28,6 +28,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define action-switchfleet()
+<<action-savefleet>>
 <$list filter="[<navigateTo>]" variable="ignore" emptyMessage=<<newstoryfleet>> >
     <!-- Then write new fleet name into the fleet state tiddler -->
     <$action-listops $tiddler=<<fleetstatetid>> $field=fleet $filter="[<navigateTo>]" />
@@ -48,6 +49,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define button-clearfleet()
+<<action-savefleet>>
 <$button class="tc-btn-invisible" actions=<<action-clearfleet>>>{{$:/core/images/close-button}}</$button>&nbsp;Close fleet
 \end
 
