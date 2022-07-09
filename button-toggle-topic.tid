@@ -4,6 +4,23 @@ type: text/vnd.tiddlywiki
 list-before:
 
 \whitespace trim
+
+\define to-default()
+    <$action-deletetiddler $tiddler="$:/core/ui/ViewTemplate/subtitle"/>
+    <$action-deletetiddler $tiddler="$:/core/ui/ViewTemplate/title"/>
+    <$action-listops $tiddler="$:/publishmode" $field=text $filter="[[normalview]]"/>
+\end
+
+\define to-fleet-rw()
+    <<hide-subtitle>><<swap-title-rw>>
+    <$action-listops $tiddler="$:/publishmode" $field=text $filter="[[topicview-rw]]"/>
+\end
+
+\define to-fleet-ro()
+    <<hide-subtitle>><<swap-title-ro>>
+    <$action-listops $tiddler="$:/publishmode" $field=text $filter="[[topicview-ro]]"/>
+\end
+
 \define switch-layout() 
     <$list filter="[{$:/publishmode}!match[normalview]]" emptyMessage="""<<hide-subtitle>><<swap-title>>""">
         <$action-deletetiddler $tiddler="$:/core/ui/ViewTemplate/subtitle"/>
@@ -14,6 +31,18 @@ list-before:
 
 \define hide-subtitle() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/subtitle" text=""/>
 
-\define swap-title() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/title" text="{{||$:/plugins/can/onetopic/template-title}}"/>
+\define swap-title-rw() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/title" text="{{||$:/plugins/can/onetopic/layout/template-title-rw}}"/>
 
-<$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> &nbsp;{{$:/publishmode}}
+\define swap-title-ro() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/title" text="{{||$:/plugins/can/onetopic/layout/template-title-ro}}"/>
+
+<!-- <$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> &nbsp;{{$:/publishmode}} -->
+
+<$button actions=<<to-default>> class="tc-btn-invisible">{{Motovun Jack.svg}}</$button>
+&nbsp;<$button actions=<<to-fleet-rw>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> 
+&nbsp;<$button actions=<<to-fleet-ro>> class="tc-btn-invisible">{{$:/plugins/can/omni/glasses.svg}}</$button> 
+
+
+
+
+
+&nbsp;{{$:/publishmode}}

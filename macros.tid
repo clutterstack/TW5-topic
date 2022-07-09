@@ -1,1 +1,6 @@
 title: $:/plugins/can/onetopic/macros
+
+
+\define fleet-rw-toolbar()
+Should this just be the view toolbar?
+\end

@@ -1,0 +1,14 @@
+title: $:/plugins/can/onetopic/layout/template-title-ro
+
+
+\define fleet-captionheading-ro()
+<div class="omni-title-heading view">
+	<$list filter="[<currentTiddler>has[caption]]">{{!!caption}}</$list>
+</div>
+\end
+
+
+
+<!-- <$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}> -->
+<h2 class="tc-title"><$view field=caption/></h2>
+<!-- </$vars> -->

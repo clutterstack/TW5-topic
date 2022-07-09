@@ -1,0 +1,6 @@
+title: $:/plugins/can/onetopic/layout/template-title-rw
+
+<!-- <$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}> -->
+<h2 class="tc-title"><<fleet-field-template "caption">><<fleet-rw-toolbar>></h2>
+<!-- </$vars> -->
+

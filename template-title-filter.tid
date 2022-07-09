@@ -2,4 +2,4 @@ title: $:/plugins/can/onetopic/ViewTemplateTitleFilters/onetopic
 tags: $:/tags/ViewTemplateTitleFilter
 list-before:
 
-[{$:/publishmode}match[topicview]then[$:/plugins/can/onetopic/template-title]]
+[{$:/publishmode}match[topicview-ro]then[$:/plugins/can/onetopic/layout/template-title-ro]] [{$:/publishmode}match[topicview-rw]then[$:/plugins/can/onetopic/layout/template-title-rw]]
