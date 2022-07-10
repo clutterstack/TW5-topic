@@ -7,8 +7,10 @@ title: $:/plugins/can/onetopic/layout/template-title-rw
 </span>
 \end
 
+<$list filter="""[all[current]!prefix[$:/]]""" emptyMessage="""{{||$:/core/ui/ViewTemplate/title/system}}""" variable="ignore">
 <div class="fleet-tc-header">
-    <div class="fleet-tc-title">{{!!title}}</div>
+    <div class="fleet-tc-title">//{{!!title}}//</div>
     <div class="fleet-tc-caption"><<fleet-field-template "caption">> <<fleet-rw-toolbar>></div>
 </div>
+</$list>
 

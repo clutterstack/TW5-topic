@@ -1,5 +1,5 @@
-tags: $:/tags/PageTemplate $:/tags/can/TopBar
-title: $:/plugins/can/topic/ui/Buttons/toggle-topic-mode
+tags: 
+title: $:/plugins/can/onetopic/ui/Buttons/toggle-topic-mode
 type: text/vnd.tiddlywiki
 list-before:
 
@@ -12,12 +12,14 @@ list-before:
 \end
 
 \define to-fleet-rw()
-    <<hide-subtitle>><<swap-title-rw>>
+    <<hide-subtitle>>
+    <<swap-title-rw>>
     <$action-listops $tiddler="$:/publishmode" $field=text $filter="[[topicview-rw]]"/>
 \end
 
 \define to-fleet-ro()
-    <<hide-subtitle>><<swap-title-ro>>
+    <<hide-subtitle>>
+    <<swap-title-ro>>
     <$action-listops $tiddler="$:/publishmode" $field=text $filter="[[topicview-ro]]"/>
 \end
 
@@ -35,10 +37,10 @@ list-before:
 
 \define swap-title-ro() <$action-setfield $tiddler="$:/core/ui/ViewTemplate/title" text="{{||$:/plugins/can/onetopic/layout/template-title-ro}}"/>
 
-<!-- <$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> &nbsp;{{$:/publishmode}} -->
+<!-- <$button actions=<<switch-layout>> class="tc-btn-invisible">{{$:/plugins/can/onetopic/ui/images/layout.svg}}</$button> &nbsp;{{$:/publishmode}} -->
 
 <$button actions=<<to-default>> class="tc-btn-invisible">{{Motovun Jack.svg}}</$button>
-&nbsp;<$button actions=<<to-fleet-rw>> class="tc-btn-invisible">{{$:/plugins/can/topic/ui/images/layout.svg}}</$button> 
+&nbsp;<$button actions=<<to-fleet-rw>> class="tc-btn-invisible">{{$:/plugins/can/onetopic/ui/images/layout.svg}}</$button> 
 &nbsp;<$button actions=<<to-fleet-ro>> class="tc-btn-invisible">{{$:/plugins/can/omni/glasses.svg}}</$button> 
 
 

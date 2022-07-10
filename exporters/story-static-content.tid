@@ -1,4 +1,4 @@
-title: $:/plugins/can/topic/exporters/story-static-content
+title: $:/plugins/can/onetopic/exporters/story-static-content
 
 \define renderContent()
 {{{ $(exportFilter)$ ||$:/core/templates/static-tiddler}}}

@@ -1,5 +1,5 @@
 title: $:/plugins/can/onetopic/ViewTemplateFilters/text-rw
 tags: $:/tags/ViewTemplateBodyFilter
-list-before:
+list-before: $:/config/ViewTemplateBodyFilters/default
 
- [{$:/publishmode}match[topicview-rw]then[$:/plugins/can/onetopic/layout/template-text-rw]]
+[{$:/publishmode}match[topicview-rw]then[$:/plugins/can/onetopic/layout/template-text-rw]] :intersection[all[current]is[tiddler]then[$:/plugins/can/onetopic/layout/template-text-rw]]

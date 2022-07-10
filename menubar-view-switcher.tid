@@ -1,0 +1,3 @@
+title: $:/plugins/can/onetopic/menubar-view-switcher
+tags: $:/tags/MenuBar
+custom-menu-content: {{$:/plugins/can/onetopic/ui/Buttons/toggle-topic-mode}}

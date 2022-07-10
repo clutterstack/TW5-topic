@@ -1,4 +1,4 @@
-title: $:/plugins/can/topic/exporters/story-static
+title: $:/plugins/can/onetopic/exporters/story-static
 tags: $:/tags/Exporter
 description: Exporter for an article laid out with the "topic" plugin
 extension: .html 
@@ -27,7 +27,7 @@ extension: .html
 <body class="tc-body">
 {{$:/StaticBanner||$:/core/templates/html-tiddler}}
 <section class="tc-story-river tc-static-story-river">
-{{$:/plugins/can/topic/exporters/story-static||$:/core/templates/html-tiddler}}
+{{$:/plugins/can/onetopic/exporters/story-static||$:/core/templates/html-tiddler}}
 </section>
 </body>
 </html>

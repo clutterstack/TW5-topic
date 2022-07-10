@@ -1,5 +1,10 @@
-title: $:/plugins/can/topic/styles
+title: $:/plugins/can/onetopic/styles
 tags: $:/tags/Stylesheet
+
+.tc-menubar-item .fleet-title {
+    margin: 0;
+    font-size: 1.6rem;
+}
 
 .fleet-header {
     display: flex;
@@ -14,6 +19,10 @@ tags: $:/tags/Stylesheet
 
 .fleet-tc-header {
      width: 100%;
+}
+
+.fleet-tc-title {
+    color: <<colour muted-foreground>>;
 }
 
 .fleet-tc-caption {

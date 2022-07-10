@@ -1,0 +1,3 @@
+title: $:/plugins/can/onetopic/menubar-fleet-title
+tags: $:/tags/MenuBar
+custom-menu-content: {{$:/plugins/can/onetopic/template-fleet-title}}

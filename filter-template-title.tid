@@ -1,5 +1,5 @@
 title: $:/plugins/can/onetopic/ViewTemplateTitleFilters/onetopic
-tags: $:/tags/ViewTemplateTitleFilter
+tags: not$:/tags/ViewTemplateTitleFilter
 list-before:
 
-[{$:/publishmode}match[topicview-ro]then[$:/plugins/can/onetopic/layout/template-title-ro]] [{$:/publishmode}match[topicview-rw]then[$:/plugins/can/onetopic/layout/template-title-rw]]
+[{$:/publishmode}match[topicview-ro]then[$:/plugins/can/onetopic/layout/template-title-ro]] [{$:/publishmode}match[topicview-rw]then[$:/plugins/can/onetopic/layout/template-title-rw]] +[prefix[$:/]then[$:/core/ui/ViewTemplate/title/system]]

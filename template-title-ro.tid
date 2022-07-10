@@ -8,7 +8,6 @@ title: $:/plugins/can/onetopic/layout/template-title-ro
 \end
 
 
-
-<!-- <$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}> -->
+<$list filter="""[all[current]!prefix[$:/]]""" emptyMessage="""{{||$:/core/ui/ViewTemplate/title/system}}""" variable="ignore">
 <h2 class="tc-title"><$view field=caption/></h2>
-<!-- </$vars> -->
+</$list>
