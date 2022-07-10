@@ -10,3 +10,34 @@ tags: $:/tags/Stylesheet
 .fleet-title {
     font-size: 2.2rem;
 }
+
+
+.fleet-tc-header {
+     width: 100%;
+}
+
+.fleet-tc-caption {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    font-size: 2.0rem;
+    margin: 0.4rem 0;
+}
+
+.fleet-field-caption {
+    flex-grow: 1;
+    min-height: 2rem;
+}
+
+.fleet-field-dblclick:hover, .fleet-text-dblclick:hover {
+    background: #ddddff;
+}
+
+.fleet-text-dblclick {
+    min-height: 2em;
+}
+
+.fleet-tc-textarea {
+    width: 100%;
+}

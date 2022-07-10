@@ -1,0 +1,24 @@
+title: $:/plugins/can/onetopic/layout/template-text-rw
+
+\define fleet-rw-text()
+<$vars editFieldName="text">
+    <$list filter="[<fleetfieldstatetid>get[editstate]match[edit]]" variable="ignore" 
+    emptyMessage=
+    '<div class="fleet-text-dblclick tc-tiddler-body"  data-creatednum=<<creatednum>> data-currenttid=<<currentTiddler>> >
+        <$omnidblclick actions=<<fleet-startfieldedit-actions>> /><$transclude $tiddler="<<currentTiddler>>" mode="block"/>
+    </div>'>
+        <$keyboard tag="div" class="tc-can-keyboard" key="((input-accept-variant))" actions="<<fleet-submitfieldedit-actions>>" >
+        <$keyboard tag="div" class="tc-can-keyboard" key="escape" actions="<<fleet-cancelfieldedit-actions>>">
+        <$keyboard tag="div" class="tc-can-keyboard" key="alt-up" actions="<<fleet-move-earlier-actions>>">
+        <$keyboard tag="div" class="tc-can-keyboard" key="alt-down" actions="<<fleet-move-later-actions>>">
+        <div class="fleet-edit-wrapper">
+            <$edit class="fleet-tc-textarea tc-tiddler-body" field="newfieldvalue" placeholder='New tiddler text' rows="1" minHeight="0" focus=true >
+                {{||$:/plugins/can/omni/buttons/split}}
+            </$edit>
+        </div>
+        </$keyboard></$keyboard></$keyboard></$keyboard>
+    </$list>
+</$vars>
+\end
+
+<<fleet-rw-text>>

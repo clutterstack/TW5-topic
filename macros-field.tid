@@ -13,18 +13,18 @@ title: $:/plugins/can/onetopic/macros/field.tid
 
 \define fleet-submitfieldedit-actions() <$action-setfield $(editFieldName)$={{!!newfieldvalue}}  $timestamp='no'/><$action-setfield $field=newfieldvalue /><$action-deletetiddler $tiddler=<<fleetfieldstatetid>>/><$action-sendmessage $message='tm-auto-save-wiki'/>
 
-\define fleet-cancelfieldedit-actions() <<fleet-toggle-field-view>>
+\define fleet-cancelfieldedit-actions() <<fleet-toggle-field-view>><$action-deletetiddler $tiddler=<<fleetfieldstatetid>>/>
 
 \define fleet-field-template($field$)
 <$vars editFieldName=$field$>
-<$list filter="[<fleetfieldstatetid>get[editstate]match[edit]]" variable="ignore" emptyMessage= """<div class="fleet-caption-dblclick" title="Double-click to edit." aria-label="Double-click to edit."><$omnidblclick actions=<<fleet-startfieldedit-actions>> /><$list filter="[<currentTiddler>has[caption]]">{{!!caption}}</$list></div>""">
-<div class="fleet-title-heading">
-	<$keyboard tag="div" class="tc-can-keyboard" key="cmd-enter" actions="<<fleet-submitfieldedit-actions>>" >
-	<$keyboard tag="div" class="tc-can-keyboard" key="ctrl-enter" actions="<<fleet-submitfieldedit-actions>>" >
-	<$keyboard tag="div" class="tc-can-keyboard" key="escape" actions="<<fleet-cancelfieldedit-actions>>">
-        <$edit-text class="omni-textarea" field="newfieldvalue" rows="1" minHeight="0" focus=true/>
-	</$keyboard></$keyboard></$keyboard>
-</div>
+<$list filter="[<fleetfieldstatetid>get[editstate]match[edit]]" variable="ignore" emptyMessage= """<div class="fleet-field-$field$ fleet-field-dblclick" title="Double-click to edit." aria-label="Double-click to edit."><$omnidblclick actions=<<fleet-startfieldedit-actions>> /><$list filter="[<currentTiddler>has[$field$]]">{{!!$field$}}</$list></div>""">
+    <div class="fleet-field-$field$ fleet-field-edit">
+        <$keyboard tag="div" class="tc-can-keyboard" key="cmd-enter" actions="<<fleet-submitfieldedit-actions>>" >
+        <$keyboard tag="div" class="tc-can-keyboard" key="ctrl-enter" actions="<<fleet-submitfieldedit-actions>>" >
+        <$keyboard tag="div" class="tc-can-keyboard" key="escape" actions="<<fleet-cancelfieldedit-actions>>">
+            <$edit-text class="omni-textarea" field="newfieldvalue" rows="1" minHeight="0" focus=true/>
+        </$keyboard></$keyboard></$keyboard>
+    </div>
 </$list>
 </$vars>
 \end

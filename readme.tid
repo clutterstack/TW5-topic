@@ -22,6 +22,13 @@ Naive attempt 1: use normal exporter. Hmm. No...
 An exporter is a template for an html file. If, looking at it in the TW, it looks like an html file that would show the content I want, I can call it an exporter and use it as one. I think.
 
 
+---
+
+I have an editable caption now, by copying the omni component for that. It has a generic component in it for any field though!
+
+Now I want to repeat that feat for the text! That'll be like the 
+
+
 
 ---
 

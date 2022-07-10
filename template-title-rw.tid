@@ -1,6 +1,14 @@
 title: $:/plugins/can/onetopic/layout/template-title-rw
 
-<!-- <$vars headingfield={{{[all[current]get[omnibus-mode]match[annot]then[caption]] ~[[title]]}}}> -->
-<h2 class="tc-title"><<fleet-field-template "caption">><<fleet-rw-toolbar>></h2>
-<!-- </$vars> -->
+\define fleet-rw-toolbar()
+<!-- This is copied out ot $:/core/ui/ViewTemplate/title -->
+<span class="tc-tiddler-controls">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] :filter[lookup[$:/config/ViewToolbarButtons/Visibility/]!match[hide]]" storyview="pop" variable="listItem"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$list>
+</span>
+\end
+
+<div class="fleet-tc-header">
+    <div class="fleet-tc-title">{{!!title}}</div>
+    <div class="fleet-tc-caption"><<fleet-field-template "caption">> <<fleet-rw-toolbar>></div>
+</div>
 
