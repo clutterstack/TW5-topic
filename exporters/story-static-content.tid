@@ -1,7 +1,7 @@
 title: $:/plugins/can/onetopic/exporters/story-static-content
 
 \define renderContent()
-{{{ $(exportFilter)$ ||$:/core/templates/static-tiddler}}}
+{{{ $(exportFilter)$ ||$:/plugins/can/onetopic/templates/static-tiddler}}}
 \end
 \import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
 <<renderContent>>

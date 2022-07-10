@@ -1,0 +1,3 @@
+title: $:/plugins/can/onetopic/templates/static-tiddler
+
+<$transclude tiddler="$:/core/ui/ViewTemplate"/>
