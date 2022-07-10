@@ -7,16 +7,16 @@ title: $:/plugins/can/onetopic/layout/template-newbelow
 <$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore<createTiddler-title>,<currentTiddler>] +[move<createTiddler-title>]"/>
 <!-- <$action-setfield $tiddler=<<createTiddler-title>> draft.of=<<createTiddler-title>> draft.title=<<createTiddler-title>> /> -->
 </$action-createtiddler>
+<<action-savefleet>>
 <$action-sendmessage $message='tm-auto-save-wiki'/>
 \end
 
 \define fleet-story-drop() 
 <!-- An analogue of <<omni-move-drop>> -->
-    <$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore<actionTiddler>,<currentTiddler>] +[move<actionTiddler>]"/>
+    <$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore<actionTiddler>,<currentTiddler>] +[move<actionTiddler>]"/><<action-savefleet>><$action-sendmessage $message='tm-auto-save-wiki'/>
 \end
 
 \define fleet-story-addbutton() <$button class="omni-button" actions=<<fleet-story-addafter>> >{{$:/core/images/new-button}}</$button>
-
 
 \define story-peripheral()
 <$droppable class="can-tiddler-peripheral tc-tiddler-controls" tag="div" actions="""<$list filter="[<actionTiddler>]" variable=ignore><<fleet-story-drop>><$action-sendmessage $message='tm-auto-save-wiki'/></$list>""">

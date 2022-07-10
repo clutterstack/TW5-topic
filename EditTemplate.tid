@@ -1,4 +1,4 @@
-title: $:/plugins/can/omni/EditTemplate
+title: $:/plugins/can/onetopic/EditTemplate
 
 {{||$:/core/ui/EditTemplate}}
 {{||$:/plugins/can/onetopic/layout/template-newbelow}}
