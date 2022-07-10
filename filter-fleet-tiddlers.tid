@@ -1,0 +1,5 @@
+description: Tiddlers in the current fleet (not recursive; good for single-page static output)
+filter: [{$:/plugins/can/omni/fleetstate!!fleet}enlist-input[]get[omni-list]enlist-input[]]
+tags: $:/tags/Filter
+title: $:/plugins/can/onetopic/filters/fleet
+
