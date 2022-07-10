@@ -9,5 +9,7 @@ title: $:/plugins/can/onetopic/layout/template-title-ro
 
 
 <$list filter="""[all[current]!prefix[$:/]]""" emptyMessage="""{{||$:/core/ui/ViewTemplate/title/system}}""" variable="ignore">
-<h2 class="tc-title"><$view field=caption/></h2>
+<div class="fleet-tc-header">
+    <div class="fleet-tc-caption">{{!!caption}}</div>
+</div>
 </$list>
