@@ -27,11 +27,7 @@ extension: .html
 <body class="tc-body">
 {{$:/StaticBanner||$:/core/templates/html-tiddler}}
 <section class="tc-story-river tc-static-story-river">
-{{$:/plugins/can/onetopic/exporters/story-static||$:/core/templates/html-tiddler}}
+{{$:/plugins/can/onetopic/exporters/story-static-content||$:/core/templates/html-tiddler}}
 </section>
 </body>
 </html>
-
-
-
-<!-- I want this to what?-->
