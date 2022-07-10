@@ -19,6 +19,7 @@ tags: $:/tags/Stylesheet
 
 .fleet-tc-header {
      width: 100%;
+     line-height: 1;
 }
 
 .fleet-tc-title {
@@ -31,7 +32,7 @@ tags: $:/tags/Stylesheet
     flex-direction: row;
     /* justify-content: space-between; */
     font-size: 2.0rem;
-    margin: 0.4rem 0;
+    margin: 2rem 0 1.5rem 0;
 }
 
 .fleet-field-caption {
@@ -44,7 +45,10 @@ tags: $:/tags/Stylesheet
 }
 
 .fleet-text-dblclick {
-    min-height: 2em;
+    min-height: 1em;
+    border: 1px solid #ccccee;
+    border-radius: 0.2em;
+    padding: 0.2em;
 }
 
 .fleet-tc-textarea {
